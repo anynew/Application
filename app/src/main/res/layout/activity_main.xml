@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.anynew.mine.MainActivity">
+    android:layout_height="match_parent">
 
-   <com.anynew.mine.CustomView
-       android:layout_width="200dp"
-       android:layout_height="200dp"
-       app:titleText = "hello"
-       app:titleTextSize = "48sp"
-       app:titleColor = "@color/colorAccent"
-       />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/id_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
