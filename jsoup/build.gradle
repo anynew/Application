@@ -1,0 +1,6 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'org.jsoup:jsoup:1.9.2'
+}
