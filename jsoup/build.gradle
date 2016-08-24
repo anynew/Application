@@ -3,4 +3,5 @@ apply plugin: 'java'
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'org.jsoup:jsoup:1.9.2'
+    compile 'com.google.code.gson:gson:2.2.4'
 }
