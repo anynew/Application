@@ -14,28 +14,36 @@ public class Spider {
     private static Document document;
 
     public static void main(String[] args){
+        List<String> listTitle = getPicture().getListTitle();
+            System.out.println(listTitle);
+
+    }
+    public static Picture getPicture(){
+        Picture picture = null;
         try {
             document = Jsoup.connect(url).get();
             Elements select = document.select(".hm a");
-
             Elements titles = select.select("p");
             Elements urls = select.select("img");
-            Elements views = select.select("div");
+            Elements views = select.select("#si > span");
             Element element = views.get(0);
-            String span = element.attr("span");
-//            Elements urls = select.select("p");
+
             List<String> listTitle = new ArrayList<>();
             List<String> listView = new ArrayList<>();
+            List<String> listUrl = new ArrayList<>();
+            List<String> listFavs = new ArrayList<>();
+
             for (int i = 0; i < titles.size(); i++) {
                 listTitle.add(titles.get(i).text());
-                listView.add(urls.get(i).attr("name"));
+                listUrl.add(urls.get(i).attr("name"));
+                listView.add(views.get(2*i).text().replaceAll("\u00A0", ""));
+                listFavs.add(views.get(2*i+1).text().replaceAll("\u00A0", ""));
             }
-//            System.out.println(listTitle.size()+"  "+listTitle.toString());
-            System.out.println(span);
+             picture = new Picture(listTitle,listView,listUrl,listFavs);
+            return picture;
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return picture;
     }
-
 }
